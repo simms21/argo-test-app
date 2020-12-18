@@ -1,4 +1,4 @@
-FROM amd64/python:3.7
+FROM arm64v8/python:3.7.9
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 CMD ["main.py"]
