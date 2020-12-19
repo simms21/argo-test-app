@@ -1,5 +1,10 @@
-FROM arm64v8/python:3.7.9
+FROM balenalib/generic-aarch64-alpine-python:latest
+
 WORKDIR /usr/src/app
-COPY . /usr/src/app
-CMD ["main.py"]
-ENTRYPOINT ["python3"]
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD [ "python", "./project/main.py" ]
